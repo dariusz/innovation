@@ -1,0 +1,100 @@
+Copyright (c) 2026 Dariusz Grabka. All rights reserved by the author.
+
+"Pivot from Startups to Enterprise Innovation"
+=============================================
+
+This talk — its slides, written content, structure, and accompanying
+notes — is licensed to the public under the
+
+    Creative Commons Attribution 4.0 International License
+    (CC BY 4.0)   SPDX-License-Identifier: CC-BY-4.0
+
+The full, authoritative legal text of this license is at:
+
+    https://creativecommons.org/licenses/by/4.0/legalcode.en
+
+A plain-language summary is at:
+
+    https://creativecommons.org/licenses/by/4.0/
+
+The legal text linked above is what governs. The summary below is offered
+as a convenience and is not a substitute for it.
+
+
+WHAT YOU MAY DO
+---------------
+
+You are free to:
+
+  * Share — copy and redistribute this material in any medium or format,
+    including linking to it or hosting your own copy.
+
+  * Adapt — remix, transform, translate, excerpt, and build upon it,
+    for any purpose, including commercially.
+
+These freedoms cannot be revoked by the author so long as you follow the
+license terms.
+
+
+WHAT IS REQUIRED
+----------------
+
+Attribution. You must:
+
+  * give appropriate credit to Dariusz Grabka,
+  * provide a link to this license,
+  * and indicate if you made changes.
+
+You may do so in any reasonable manner, but not in any way that suggests
+the author endorses you or your use.
+
+You may not apply legal terms or technological measures that legally
+restrict others from doing anything this license permits.
+
+
+SUGGESTED ATTRIBUTION
+---------------------
+
+For a direct copy or quotation:
+
+    "Pivot from Startups to Enterprise Innovation" by Dariusz Grabka,
+    licensed under CC BY 4.0.
+    https://creativecommons.org/licenses/by/4.0/
+
+For an adaptation:
+
+    Adapted from "Pivot from Startups to Enterprise Innovation" by
+    Dariusz Grabka, licensed under CC BY 4.0. Changes were made.
+    https://creativecommons.org/licenses/by/4.0/
+
+(If you publish this talk at a stable URL, add it to the lines above so
+attributors have somewhere to point.)
+
+
+WHAT THIS LICENSE DOES NOT COVER
+--------------------------------
+
+1. Third-party software. The files in vendor/ are reveal.js and its
+   stylesheets, which are the work of Hakim El Hattab and are
+   distributed under the MIT License — not under CC BY 4.0. See
+   vendor/LICENSE-reveal.txt. The reveal.js white theme in vendor/ has
+   been modified from its original (a webfont @import was removed so the
+   deck runs fully offline).
+
+2. Trademarks. Company, product, and organization names referred to in
+   this talk — including Purolator and the Purolator Digital Lab — are
+   the marks of their respective owners. No license to any trademark is
+   granted here, and nothing in this talk should be read as an official
+   statement by, or on behalf of, any organization named in it. The views
+   expressed are the author's own.
+
+3. Rights the author does not hold. This license grants only such rights
+   as the author is able to grant.
+
+
+NO WARRANTY
+-----------
+
+This material is offered as-is. To the extent possible under law, the
+author makes no warranties about it and disclaims liability for any use
+of it, as set out more fully in the license text linked above.

@@ -7,15 +7,7 @@
 <link rel="stylesheet" href="vendor/reveal.css">
 <link rel="stylesheet" href="vendor/reveal-white-theme.css">
 <link rel="stylesheet" href="styles.css">
-<script>
-  /* Set the theme before first paint so there's no flash of the wrong mode.
-     Defaults to light; remembers your last choice if storage is available. */
-  (function () {
-    var stored = null;
-    try { stored = localStorage.getItem('bigtalk-theme'); } catch (e) {}
-    document.documentElement.dataset.theme = stored === 'dark' ? 'dark' : 'light';
-  })();
-</script>
+<script src="app.js"></script>
 </head>
 <body>
 <button id="theme-toggle" type="button" aria-label="Switch between light and dark mode">Dark</button>
@@ -25,8 +17,8 @@
     <!-- Slide 1: Cover -->
     <section>
       <div class="cover">
-        <div class="eyebrow">A Perspective on Canadian Innovation</div>
-        <h1>Pivot from Startups to Enterprise Innovation</h1>
+        <div class="eyebrow author"><a href="https://www.linkedin.com/in/dariuszg/" target="_blank" rel="noopener">Dariusz Grabka</a> | August 2026</div>
+        <h1>Pivot: From Startups to Enterprise Innovation</h1>
         <div class="subtitle">Canada's biggest innovation opportunity may be inside its largest companies.</div>
       </div>
     </section>
@@ -270,42 +262,5 @@
 </div>
 
 <script src="vendor/reveal.js"></script>
-<script>
-  Reveal.initialize({
-    hash: true,
-    controls: true,
-    progress: true,
-    slideNumber: 'c/t',
-    center: false,
-    transition: 'fade',
-    width: 1280,
-    height: 800,
-    margin: 0.03,
-  });
-
-  /* Theme toggle: click the pill, or press T. */
-  (function () {
-    var root = document.documentElement;
-    var btn = document.getElementById('theme-toggle');
-
-    function label() {
-      btn.textContent = root.dataset.theme === 'dark' ? 'Light' : 'Dark';
-    }
-
-    function toggle() {
-      var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-      root.dataset.theme = next;
-      try { localStorage.setItem('bigtalk-theme', next); } catch (e) {}
-      label();
-    }
-
-    label();
-    btn.addEventListener('click', function (e) { e.preventDefault(); toggle(); btn.blur(); });
-    document.addEventListener('keydown', function (e) {
-      if (e.metaKey || e.ctrlKey || e.altKey) return;
-      if (e.key === 't' || e.key === 'T') { e.preventDefault(); toggle(); }
-    });
-  })();
-</script>
 </body>
 </html>
