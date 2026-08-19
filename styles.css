@@ -1,0 +1,201 @@
+/* ============================================================
+   Palette — light (default) and dark.
+   Every colour in the deck resolves through these variables,
+   so the theme switch is a data-attribute flip on <html>.
+   ============================================================ */
+:root{
+  --ink:#1d1d1f;      /* near-black — headlines, body */
+  --sub:#6e6e73;      /* mid grey — labels, secondary text */
+  --accent:#d70015;   /* red — kickers, bullets, rules, closing lines */
+  --line:#d2d2d7;     /* light grey — borders, dividers */
+  --bg:#fbfbfd;       /* off-white page */
+  --surface:#ffffff;  /* raised elements (chips) */
+  --shadow:0 1px 2px rgba(0,0,0,0.04);
+  --font:-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+html[data-theme="dark"]{
+  --ink:#f5f5f7;
+  --sub:#98989d;
+  --accent:#ff453a;   /* brighter red — #d70015 only hits ~3.5:1 on black */
+  --line:#38383a;
+  --bg:#0b0b0c;
+  --surface:#1c1c1e;
+  --shadow:none;
+}
+
+/* Bridge our palette into reveal.js's own variables so its
+   viewport background and base text colour follow the theme. */
+:root{
+  --r-background-color: var(--bg);
+  --r-main-color: var(--ink);
+  --r-heading-color: var(--ink);
+}
+.reveal-viewport { background-color: var(--bg); transition: background-color 0.25s ease; }
+
+.reveal, .reveal *, .reveal *::before, .reveal *::after { box-sizing: border-box; }
+/* Declared on html/body, not just .reveal, so UI chrome outside the
+   deck (the theme toggle) inherits the same stack. */
+html, body { background: var(--bg); font-family: var(--font); }
+.reveal { font-family: var(--font); color: var(--ink); }
+.reveal .slides { text-align: left; }
+.reveal .slides section {
+  padding: 36px 64px;
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+}
+.reveal .slides section, .reveal .slides section > * { max-width: 100%; }
+
+.kicker { font-size: 0.5em; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 0.45em; }
+.reveal h1 { font-size: 2.1em; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 0.2em; line-height: 1.06; }
+.reveal h2 { font-size: 1.45em; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 0.4em; line-height: 1.1; }
+.subtitle { font-size: 0.95em; color: var(--sub); font-weight: 400; margin-top: 0.2em; }
+
+.reveal p { line-height: 1.4; overflow-wrap: break-word; }
+.reveal ul { margin: 0; padding: 0; width: 100%; }
+.reveal ul li { list-style: none; position: relative; padding-left: 0; margin-bottom: 0.38em; font-size: 0.62em; line-height: 1.3; color: var(--ink); overflow-wrap: break-word; }
+.reveal ul li::before { content: "•"; position: absolute; left: -0.85em; color: var(--accent); font-weight: 600; }
+.reveal ul ul { margin-top: 0.3em; padding-left: 1em; }
+
+.cols { display: flex; gap: 40px; align-items: flex-start; width: 100%; }
+.col { flex: 1 1 0; min-width: 0; max-width: 100%; }
+
+.callout {
+  border-left: 3px solid var(--accent);
+  padding: 0.3em 0 0.3em 1em;
+  font-size: 0.68em;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0.6em 0;
+  line-height: 1.3;
+}
+
+.quote-big {
+  font-size: 1.2em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.28;
+  color: var(--ink);
+  max-width: 900px;
+}
+
+.label {
+  font-size: 0.36em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--sub);
+  font-weight: 700;
+  margin-top: 28px;
+  margin-bottom: 16px;
+}
+
+.divider { height: 1px; background: var(--line); margin: 0.5em 0 0.6em 0; border: none; }
+
+.stat-row { display: flex; gap: 12px; margin: 0 0 0.8em; flex-wrap: wrap; }
+.stat-chip {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 8px 16px;
+  font-size: 0.48em;
+  font-weight: 600;
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.cover { display:flex; flex-direction:column; justify-content:center; height:100%; }
+.cover .eyebrow { font-size:0.55em; letter-spacing:0.18em; text-transform:uppercase; color:var(--sub); font-weight:600; margin-bottom:1.2em; }
+.cover h1 { font-size: 2.05em; }
+.cover .subtitle { font-size: 1.05em; margin-top: 0.5em; max-width: 780px; }
+
+.closing { display:flex; flex-direction:column; justify-content:center; height:100%; }
+.closing .quote-big { font-size: 1.3em; margin-bottom: 0.5em; }
+.closing p { font-size: 0.75em; }
+.closing .final { font-size: 1em; font-weight: 700; color: var(--accent); margin-top: 0.6em; }
+
+/* .reveal prefix required — plain .ask-list loses specificity to .reveal ul li */
+.reveal .ask-list { margin-top: 0.2em; }
+.reveal .ask-list li { font-size: 0.7em; margin-bottom: 0.5em; padding-left: 1.3em; }
+.reveal .ask-list li::before { content: "→"; left: 0; font-weight: 700; }
+
+/* Closing calls to action — three numbered pillars.
+   Numerals come from a CSS counter, so the markup stays a plain <ol>. */
+.reveal .cta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  counter-reset: cta;
+  list-style: none;
+  margin: 0.75em 0 0;
+  padding: 0;
+}
+.reveal .cta li {
+  counter-increment: cta;
+  list-style: none;
+  margin: 0;
+  padding: 14px 0 0;
+  border-top: 2px solid var(--accent);
+  font-size: 0.58em;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.reveal .cta li::before {
+  content: counter(cta);
+  display: block;
+  position: static;
+  font-size: 1.7em;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+/* reveal.js runtime chrome — no markup in this file, injected by reveal */
+.reveal .progress { color: var(--accent); }
+.reveal .controls { color: var(--accent); }
+
+/* Slide number — moved bottom-LEFT so it clears the arrow controls,
+   and restyled from reveal's default white-on-black box. */
+.reveal .slide-number {
+  right: auto;
+  left: 14px;
+  bottom: 12px;
+  background: none;
+  padding: 0;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--sub);
+  opacity: 0.5;
+}
+.reveal .slide-number-delimiter { margin: 0 2px; }
+
+/* ============================================================
+   Theme toggle — lives outside .reveal so it isn't slide content.
+   Faded until hovered so it stays out of the way when projected.
+   ============================================================ */
+#theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 18px;
+  z-index: 60;
+  box-sizing: border-box;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--sub);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0.28;
+  transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+#theme-toggle:hover, #theme-toggle:focus-visible { opacity: 1; color: var(--accent); border-color: var(--accent); }
+#theme-toggle:focus { outline: none; }
+@media print { #theme-toggle { display: none; } }
