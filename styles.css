@@ -116,6 +116,24 @@ html, body { background: var(--bg); font-family: var(--font); }
 .closing p { font-size: 0.75em; }
 .closing .final { font-size: 1em; font-weight: 700; color: var(--accent); margin-top: 0.6em; }
 
+/* Full-bleed illustration slide — the art is solid-black ink on a
+   transparent alpha channel, so it composites on either theme's
+   background with no white box, and flips to white ink in dark mode
+   via filter:invert() rather than needing two exported assets. */
+.illustration-slide { display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center; }
+.illustration-slide .kicker { text-align:center; }
+.illustration-slide .illustration {
+  display: block;
+  max-width: 980px;
+  max-height: 520px;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  transition: filter 0.25s ease;
+}
+html[data-theme="dark"] .illustration-slide .illustration { filter: invert(1); }
+.illustration-slide .callout { text-align: left; max-width: 820px; margin: 0.7em auto 0; }
+
 /* .reveal prefix required — plain .ask-list loses specificity to .reveal ul li */
 .reveal .ask-list { margin-top: 0.2em; }
 .reveal .ask-list li { font-size: 0.7em; margin-bottom: 0.5em; padding-left: 1.3em; }
