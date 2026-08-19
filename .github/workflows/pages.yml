@@ -34,6 +34,18 @@ jobs:
             --exclude='outline.md' \
             ./ _site/
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Minify JS + CSS
+        run: |
+          npx --yes esbuild@0.24.0 \
+            _site/app.js --minify --outfile=_site/app.js --allow-overwrite
+          npx --yes esbuild@0.24.0 \
+            _site/styles.css --minify --outfile=_site/styles.css --allow-overwrite
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
